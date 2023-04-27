@@ -1,22 +1,26 @@
-#include "Contacts.hpp"
+#ifndef CPNTACT_HPP
+#define CONTACT_HPP
 
-void Contact::setFirstName(std::string firstName){
-    this->firstName = firstName;
-}
+#include <string>
 
-void Contact::setLastName(std::string lastName){
-    this->lastName=lastName;
-}
-
-void Contact::setNickName(std::string nickName){
-    this->nickName = nickName;
-}
-
-void Contact::setPhoneNumber(std::string phoneNumber){
-    this->phoneNumber = phoneNumber;
-}
-
-void Contact::setDarkestSecret(std::string darkestSecret){
-    this->darkestSecret = darkestSecret;
-}
-
+class Contact{
+    private:
+    std::string firstName;
+    std::string lastName;
+    std::string nickName;
+    std::string phoneNumber;
+    std::string darkestSecret;
+    
+    public:
+    std::string getFirstName();
+    std::string getLastName();
+    std::string getNickName();
+    std::string getPhoneNumber();
+    std::string getDarkestSecret();
+    void setFirstName(std::string firstName);
+    void setLastName(std::string lastName);
+    void setNickName(std::string nickName);
+    void setPhoneNumber(std::string phoneNumber);
+    void setDarkestSecret(std::string darkestSecret);
+};
+#endif
