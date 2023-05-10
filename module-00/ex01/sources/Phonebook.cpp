@@ -26,19 +26,24 @@ Contact *Phonebook::getContact(){
 
     std::cout << "First Name: ";
     std::getline(std::cin, FirstName);
-    if(isEmpty(FirstName)) return (NULL);
+    if(isEmpty(FirstName)) 
+        return (NULL);
     std::cout << "Last Name: ";
     std::getline(std::cin, LastName);
-    if(isEmpty(LastName)) return (NULL);
+    if(isEmpty(LastName)) 
+        return (NULL);
     std::cout << "Nickname: ";
     std::getline(std::cin, Nickname);
-    if(isEmpty(Nickname)) return (NULL);
+    if(isEmpty(Nickname)) 
+        return (NULL);
     std::cout << "Phone Number: ";
     std::getline(std::cin, PhoneNumber);
-    if(isEmpty(PhoneNumber)) return (NULL);
+    if(isEmpty(PhoneNumber)) 
+        return (NULL);
     std::cout << "Darkest Secret: ";
     std::getline(std::cin, DarkestSecret);
-    if(isEmpty(DarkestSecret)) return (NULL);
+    if(isEmpty(DarkestSecret)) 
+        return (NULL);
 
     newContact->setFirstName(FirstName);
     newContact->setLastName(LastName);
@@ -50,13 +55,14 @@ Contact *Phonebook::getContact(){
 
 int Phonebook::addContact(){
     Contact *newContact;
-    int index = this->getCount() % 8;
+    int index;
 
     newContact = this->getContact();
     if(!newContact || newContact == NULL) {
         delete newContact;
         return 0;
     }
+    index = this->getCount() % 8;
     if(this->getCount() > 7){
         delete this->_contacts[index];
     }
@@ -65,9 +71,21 @@ int Phonebook::addContact(){
     return 1;
 }
 
+std::string  Phonebook::truncate(std::string str){
+    return str.length() > 10 ? str.substr(0, 9) + "." : str;
+}
+
+void Phonebook::putLines(int index, Contact *contact){
+    std::cout << "|" << std::setw(10) << index;
+    std::cout << "|" << std::setw(10) << this->truncate(contact->getFirstName());
+    std::cout << "|" << std::setw(10) << this->truncate(contact->getLastName());
+    std::cout << "|" << std::setw(10) << this->truncate(contact->getNickName());
+    std::cout << "|" << std::endl;
+}
+
 void Phonebook::search(){
     int index=0;
-    int count=0;
+    int count;
 
     if(this->_count > 8)
         count=8;
@@ -87,4 +105,15 @@ void Phonebook::search(){
         std::cout << "This ID does not exists.\n";
     }
     std::cin.ignore(10000, '\n');
+}
+
+void Phonebook::freeClass(){
+    int max;
+     
+    if (this->getCount() > 8)
+        max=8;
+    else
+        max =  this->getCount();
+    for(int i=0; i < max; i++)
+        delete this->_contacts[i];
 }

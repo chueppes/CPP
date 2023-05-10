@@ -2,9 +2,7 @@
 #include "../includes/Phonebook.hpp"
 #include "../includes/Contacts.hpp"
 
-std::string truncate(std::string str){
-    return str.length() > 10 ? str.substr(0, 9) + "." : str;
-}
+
 
 bool isEmpty(std::string str){
     if(str.empty()){
@@ -28,14 +26,6 @@ void putFooter(){
     std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
 }
 
-void putLines(int index, Contact contact){
-    std::cout << "|" << std::setw(10) << index;
-    std::cout << "|" << std::setw(10) << truncate(contact.getFirstName());
-    std::cout << "|" << std::setw(10) << truncate(contact.getLastName());
-    std::cout << "|" << std::setw(10) << truncate(contact.getNickName());
-    std::cout << "|" << std::endl;
-}
-
 void howToUse(){
       std::cout << "How to use::" << std::endl;
   std::cout << "- ADD: add a contact to phonebook" << std::endl;
@@ -43,19 +33,11 @@ void howToUse(){
   std::cout << "- EXIT: quit the program" << std::endl;
 }
 
-bool checkInput(std::string input){
-    if(input.empty()) return true;
-    return input == "ADD" || input == "SEARCH" || input =="EXIT";
-}
-
 void handleOptions(std::string input, Phonebook *phone){
 
     while(true){
         std::cout << "-> ";
         std::getline(std::cin, input);
-        if(checkInput(input)==true)
-        std::cout << "Invalid option.";
-    
         if(input == "ADD"){
             if (phone->addContact())
                 ;
@@ -68,6 +50,8 @@ void handleOptions(std::string input, Phonebook *phone){
             phone->freeClass();
             break;
         }
+        else 
+            std::cout << "Invalid Option.\n";
     }
     delete phone;
     std::cout << "Phonebook closed.";

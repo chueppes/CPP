@@ -1,4 +1,4 @@
-#ifndef CPNTACTS_HPP
+#ifndef CONTACTS_HPP
 #define CONTACTS_HPP
 
 #include <string>

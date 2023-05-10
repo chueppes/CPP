@@ -21,6 +21,8 @@ class Phonebook{
         int addContact();
         Contact *getContact();
         void    freeClass();
-        void    search();      
+        void    search();    
+        void    putLines(int index, Contact *contact);
+        std::string truncate(std::string str);  
 };
 #endif
