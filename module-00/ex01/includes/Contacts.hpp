@@ -1,5 +1,5 @@
-#ifndef CPNTACT_HPP
-#define CONTACT_HPP
+#ifndef CPNTACTS_HPP
+#define CONTACTS_HPP
 
 #include <string>
 #include <iomanip>
