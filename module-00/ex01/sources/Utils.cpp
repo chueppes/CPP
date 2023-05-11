@@ -27,7 +27,7 @@ void putFooter(){
 }
 
 void howToUse(){
-      std::cout << "How to use::" << std::endl;
+    std::cout << "How to use::" << std::endl;
   std::cout << "- ADD: add a contact to phonebook" << std::endl;
   std::cout << "- SEARCH: search for a contact in the phonebook" << std::endl;
   std::cout << "- EXIT: quit the program" << std::endl;

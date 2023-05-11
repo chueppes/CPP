@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv){
     if(argc == 1){
-        std::cout << "*LOUD AND UNBERABLE FEEDBACK NOISE*";
+        std::cout << "*LOUD AND UNBERABLE FEEDBACK NOISE*\n";
         return (0);
     } 
         for(int i=1; i < argc; i++){
