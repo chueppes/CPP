@@ -16,7 +16,7 @@ class Fixed{
         Fixed();
         Fixed(const int intValue);
         Fixed(const float floatValue);
-        Fixed(Fixed &copy);
+        Fixed(Fixed const &copy);
         ~Fixed();
         //Copy assignment operator
         Fixed &operator=(Fixed const &copy);
@@ -27,10 +27,10 @@ class Fixed{
         int getRawBits() const;
         void setRawBits(int const raw);
         //Min-Max
-        static const Fixed& min(const Fixed& first, const Fixed& second);
-        static const Fixed& max(const Fixed& first, const Fixed& second);
         static Fixed& min(Fixed& first, Fixed& second);
         static Fixed& max(Fixed& first, Fixed& second);
+        static const Fixed& min(Fixed const& first, Fixed const& second);
+        static const Fixed& max(Fixed const&  first, Fixed const& second);
         //increment-decrement operators
         Fixed operator++();
         Fixed operator--();
@@ -44,10 +44,10 @@ class Fixed{
         bool operator==(const Fixed& num);
         bool operator!=(const Fixed& num);
         //arithimetic operators
-        Fixed operator+ (Fixed const &second) const;
-        Fixed operator- (Fixed const &second) const;
-        Fixed operator* (Fixed const &second) const;
-        Fixed operator/ (Fixed const &second) const;
+        Fixed operator+(Fixed const & second) const;
+        Fixed operator-(Fixed const & second) const;
+        Fixed operator*(Fixed const & second) const;
+        Fixed operator/(Fixed const & second) const;
 };
 std::ostream &operator<<(std::ostream &output, const Fixed &fixed);
 
