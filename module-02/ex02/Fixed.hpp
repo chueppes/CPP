@@ -32,10 +32,10 @@ class Fixed{
         static Fixed& min(Fixed& first, Fixed& second);
         static Fixed& max(Fixed& first, Fixed& second);
         //increment-decrement operators
-        Fixed& operator++();
-        Fixed& operator--();
-        Fixed& operator++(int);
-        Fixed& operator--(int);
+        Fixed operator++();
+        Fixed operator--();
+        Fixed operator++(int);
+        Fixed operator--(int);
         //boolean comparison operations
         bool operator> (const Fixed& num);
         bool operator>=(const Fixed& num);
@@ -46,7 +46,7 @@ class Fixed{
         //arithimetic operators
         Fixed operator+ (Fixed const &second) const;
         Fixed operator- (Fixed const &second) const;
-        Fixed operator* (Fixed const &second);
+        Fixed operator* (Fixed const &second) const;
         Fixed operator/ (Fixed const &second) const;
 };
 std::ostream &operator<<(std::ostream &output, const Fixed &fixed);
