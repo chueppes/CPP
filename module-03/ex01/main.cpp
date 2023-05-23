@@ -1,4 +1,4 @@
-#include "ClapTrap.hpp"
+#include "Scavtrap.hpp"
 
 int main()
 {
@@ -7,7 +7,7 @@ int main()
     std::cout << "\033[0;31m Attacks recieved are red.\n\033[0m";
     std::cout << "\033[0;32m Repairs are green.\n \033[0m";
 	
-	ClapTrap	b("Morgan");
+	ScavTrap	b("Wilhelm");
 
 	b.beRepaired(5);
 	b.attack("Handsome Jack");
@@ -17,5 +17,6 @@ int main()
 	b.attack("Lillith");
 	b.beRepaired(6);
 	b.attack("Lillith");
+	b.guardGate();
 
 }

@@ -1,4 +1,4 @@
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
@@ -7,15 +7,12 @@ int main()
     std::cout << "\033[0;31m Attacks recieved are red.\n\033[0m";
     std::cout << "\033[0;32m Repairs are green.\n \033[0m";
 	
-	ClapTrap	b("Morgan");
+	FragTrap	b("Wilhelm");
 
 	b.beRepaired(5);
 	b.attack("Handsome Jack");
 	b.takeDamage(3);
-	b.attack("Handsome Jack");
-	b.takeDamage(20);
 	b.attack("Lillith");
-	b.beRepaired(6);
-	b.attack("Lillith");
+	b.highFivesGuys();
 
 }

@@ -5,7 +5,7 @@ ClapTrap::ClapTrap(){
     this->setEnergyPoints(10);
     this->setHitPoints(10);
     this->setName("Fyrestone ClapTrap");
-    std::cout << "Default constructor called.\n";
+    std::cout << "ClapTrap default constructor called.\n";
 }
 
 ClapTrap::ClapTrap(std::string name){
@@ -13,15 +13,15 @@ ClapTrap::ClapTrap(std::string name){
     this->setEnergyPoints(10);
     this->setHitPoints(10);
     this->setName(name);
-    std::cout << "Constructor for " << name << " called.\n";
+    std::cout << "Constructor for ClapTrap " << name << " called.\n";
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout << "Destructor called.\n";
+    std::cout << "ClapTrap destructor called.\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy){
-    std::cout << "Copy constructor called.\n";
+    std::cout << "ClapTrap copy constructor called.\n";
     *this = copy;
 }
 
@@ -30,7 +30,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
     this->setEnergyPoints(copy.getAttackDamage());
     this->setHitPoints(copy.getHitPoints());
     this->setName(copy.getName());
-    std::cout << "Copy assignment operator called.\n";
+    std::cout << "ClapTrap copy assignment operator called.\n";
     return(*this);
 }
 
@@ -50,7 +50,7 @@ void ClapTrap::takeDamage(unsigned int amount){
     if(!this->getHitPoints()){
           std::cout << "Oh, well, that's awkward. It appears that Claptrap " << this->getName() <<" currently in a... uh, non-functional state.\n";
           return ; }
-    std::cout << "\033[0;31mOh, owie! Claptrap " << this->getName() << " just took a hit of " << amount << " points of damage, and it stings like a Hyperion bullet!\n \033[0m";
+    std::cout << "\033[0;31mOh, owie! ClapTrap " << this->getName() << " just took a hit of " << amount << " points of damage, and it stings like a Hyperion bullet!\n \033[0m";
     this->setHitPoints(this->getHitPoints() - amount);
     if (this->getHitPoints() < 0){
         std::cout << "Claptrap " << this->getName() << " bravely meets his demise, overwhelmed by an incoming attack.\n";
