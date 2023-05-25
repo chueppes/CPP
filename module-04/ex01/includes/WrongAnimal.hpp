@@ -29,7 +29,7 @@ public:
     //copy assignment operator
     WrongAnimal& operator=(const WrongAnimal& copy);
     //member function
-    virtual void makeSound() const;
+    void makeSound() const;
     //getters and setters
     std::string getType() const;
     void setType(std::string Type);

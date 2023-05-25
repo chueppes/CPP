@@ -20,8 +20,8 @@
 int main(){
     Animal *Garfield = new Cat();
     Animal *Odie = new Dog();
-    //Animal *Jon = new Animal();
-    //Animal Jon("jon");
+    // Animal *Jon = new Animal();
+    // Animal Jon("jon");
     Garfield->makeSound();
     Odie->makeSound();
 
