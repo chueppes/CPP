@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/24 21:43:15 by acalvo4           #+#    #+#             */
+/*   Updated: 2023/05/24 21:43:15 by acalvo4          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
  //Constructors and destructors:
@@ -32,11 +44,11 @@ Fixed &Fixed::operator=( Fixed const &copy){
     return (*this);
 }
 //methods
-float Fixed::turnToFloat()const{
+float Fixed::toFloat()const{
     return ((float)this->_value / (1 << _bit));
 }
 
-int Fixed::turnToInt()const{
+int Fixed::toInt()const{
     return (this->_value >> Fixed::_value);
 }
 //getter and setter
@@ -128,19 +140,19 @@ bool Fixed::operator!=(const Fixed& num){
 }
 //arithimetic operators
 Fixed  Fixed::operator+(const Fixed & second)const{
-    return(Fixed(this->turnToFloat() + second.turnToFloat()));
+    return(Fixed(this->toFloat() + second.toFloat()));
 }
 Fixed Fixed::operator-(const Fixed  & second)const{
-    return(Fixed(this->turnToFloat() - second.turnToFloat()));
+    return(Fixed(this->toFloat() - second.toFloat()));
 }
 Fixed Fixed::operator*(const Fixed  & second)const {
-    return(Fixed(this->turnToFloat() * second.turnToFloat()));
+    return(Fixed(this->toFloat() * second.toFloat()));
 }
 Fixed  Fixed::operator/(const Fixed  & second)const{
-    return( Fixed( this->turnToFloat() / second.turnToFloat() ) );
+    return( Fixed( this->toFloat() / second.toFloat() ) );
 }
 
 std::ostream &operator << (std::ostream &output, const Fixed &fixed){
-    output << fixed.turnToFloat();
+    output << fixed.toFloat();
     return(output);
 }

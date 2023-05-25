@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/24 21:43:18 by acalvo4           #+#    #+#             */
+/*   Updated: 2023/05/24 21:43:18 by acalvo4          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -21,8 +33,8 @@ class Fixed{
         //Copy assignment operator
         Fixed &operator=(Fixed const &copy);
         //methods
-        int turnToInt() const;
-        float turnToFloat() const;
+        int toInt() const;
+        float toFloat() const;
         //getter and setter
         int getRawBits() const;
         void setRawBits(int const raw);

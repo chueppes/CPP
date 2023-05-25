@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/24 21:43:03 by acalvo4           #+#    #+#             */
+/*   Updated: 2023/05/24 21:43:03 by acalvo4          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed(){
@@ -31,11 +43,11 @@ Fixed &Fixed::operator=( Fixed const &copy){
     return (*this);
 }
 
-float Fixed::turnToFloat()const{
+float Fixed::toFloat()const{
     return ((float)this->_value / 256);
 }
 
-int Fixed::turnToInt()const{
+int Fixed::toInt()const{
     return (this->_value / 256);
 }
 
@@ -48,6 +60,6 @@ void Fixed::setRawBits(int const raw){
 }
 
 std::ostream &operator << (std::ostream &output, const Fixed &fixed){
-    output << fixed.turnToFloat();
+    output << fixed.toFloat();
     return(output);
 }
