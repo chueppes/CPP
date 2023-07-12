@@ -1,8 +1,8 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 166, 135), _target("home"){}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("home"){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target):AForm("ShrubberyCreationForm", 66, 35), _target(target){}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target):AForm("ShrubberyCreationForm", 145, 137), _target(target){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy), _target(copy.getTarget()){}
 
@@ -22,10 +22,10 @@ std::string ShrubberyCreationForm::getTarget() const{
 void ShrubberyCreationForm::execute(Bureaucrat const &exec)const{
     if(this->getIsSigned() == false)
         throw AForm::FormNotSignedException();
-    else if (this->getExecuteGrade() < exec.getGrade())
+    if (this->getExecuteGrade() < exec.getGrade())
         throw AForm::GradeTooLowException();
 
-    std::ofstream outFile(this->_target + "_shrubbery");
+    std::ofstream outFile((this->_target + "_shrubbery").c_str());
     outFile << "               ,@@@@@@@," << std::endl;
     outFile << "       ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl;
     outFile << "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl;

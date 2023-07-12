@@ -15,9 +15,9 @@ AForm::AForm(const AForm &copy) :_name(copy.getName()), _toSign(copy.getSignGrad
 AForm::AForm(const std::string &name, int gradeSign, int gradeExec): _name(name), _toSign(gradeSign), _toExecute(gradeExec){
     this ->_isSigned = false;
     if(gradeSign < 1 || gradeExec < 1)
-        throw GradeTooLowException();
-    else if(gradeSign > 150 || gradeExec > 150)
         throw GradeTooHighException();
+    if(gradeSign > 150 || gradeExec > 150)
+        throw GradeTooLowException();
 }
 
 AForm &AForm::operator=(const AForm &copy){
@@ -45,7 +45,6 @@ bool AForm::getIsSigned() const{
 void AForm::beSigned(const Bureaucrat &bureaucrat){
     if(bureaucrat.getGrade() > this->_toSign)
             throw AForm::GradeTooLowException();
-    else
         this->_isSigned = true;
 }
 
@@ -62,6 +61,6 @@ std::ostream &operator<<(std::ostream &out, const AForm &form){
     return out;
 }
 
-void AForm::execute(Bureaucrat const &executor) const{
-    (void)executor;
+const char *AForm::FormNotSignedException::what() const throw(){
+    return("Error: The form is not signed.");
 }

@@ -10,7 +10,6 @@ int main(){
         ShrubberyCreationForm f1("home");
         RobotomyRequestForm f2("Varys");
         PresidentialPardonForm f3("Tyrion Lannister");
-        AForm   form("someform", 50, 50);
         Lord.signForm(f1);
         Lord.signForm(f2);
         Mormont.signForm(f3);

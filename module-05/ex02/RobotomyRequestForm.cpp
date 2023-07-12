@@ -22,7 +22,7 @@ std::string RobotomyRequestForm::getTarget() const{
 void RobotomyRequestForm::execute(Bureaucrat const &exec)const{
     if(this->getIsSigned() == false)
         throw AForm::FormNotSignedException();
-    else if (this->getExecuteGrade() < exec.getGrade())
+    if (this->getExecuteGrade() < exec.getGrade())
         throw AForm::GradeTooLowException();
     std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox.\n";
     std::cout << "*inaudible robot noises*\n";

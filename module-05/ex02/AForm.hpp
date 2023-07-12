@@ -23,7 +23,7 @@ class AForm{
         int getExecuteGrade()const;
         std::string getName()const;
         bool getIsSigned()const;
-        virtual void execute(const Bureaucrat &executor)const;
+        virtual void execute(const Bureaucrat &executor)const=0;
         //actions
         void beSigned(const Bureaucrat &bureaucrat);
         //exceptions

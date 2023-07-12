@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include <exception>
 
 Bureaucrat::Bureaucrat():_name("Shea"){
     this->_grade=150;
@@ -68,9 +69,10 @@ void Bureaucrat::signForm(AForm &form){
     }
 }
 
-void Bureaucrat::executeForm(AForm const &form)const{
+void Bureaucrat::executeForm(AForm const &form){
     try{
         form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
     }
     catch(const std::exception &exe)
     {
