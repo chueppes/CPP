@@ -8,7 +8,7 @@ AForm::~AForm(){
     std::cout << "Destructor called\n";
 }
 
-AForm::AForm(const AForm &copy) :_name(copy.getName()), _toSign(copy.getSignGrade()), _toExecute(copy.getExecuteGrade()), _isSigned(copy.getIsSigned()){
+AForm::AForm(const AForm &copy) :_name(copy.getName()), _toSign(copy.getSignGrade()), _toExecute(getExecuteGrade()), _isSigned(copy.getIsSigned()){
 
 }
 
@@ -16,7 +16,7 @@ AForm::AForm(const std::string &name, int gradeSign, int gradeExec): _name(name)
     this ->_isSigned = false;
     if(gradeSign < 1 || gradeExec < 1)
         throw GradeTooHighException();
-    if(gradeSign > 150 || gradeExec > 150)
+    else if(gradeSign > 150 || gradeExec > 150)
         throw GradeTooLowException();
 }
 

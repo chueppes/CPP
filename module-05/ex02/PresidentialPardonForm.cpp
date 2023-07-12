@@ -20,8 +20,6 @@ std::string PresidentialPardonForm::getTarget() const{
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const &exec)const{
-    
-    
     if(this->getIsSigned() == false)
         throw AForm::FormNotSignedException();
     if (this->getExecuteGrade() < exec.getGrade())

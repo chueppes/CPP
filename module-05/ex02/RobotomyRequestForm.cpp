@@ -1,8 +1,8 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("home", 66, 35), _target("home"){}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("home", 72, 45), _target("home"){}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target):AForm("RobotomyRequestForm", 66, 35), _target(target){}
+RobotomyRequestForm::RobotomyRequestForm(const std::string target):AForm("RobotomyRequestForm", 72, 45), _target(target){}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(copy), _target(copy.getTarget()){}
 
@@ -19,16 +19,17 @@ std::string RobotomyRequestForm::getTarget() const{
     return this->_target;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const &exec)const{
-    if(this->getIsSigned() == false)
+void RobotomyRequestForm::execute(const Bureaucrat  &exec)const{
+   if (this->getIsSigned() == false)
         throw AForm::FormNotSignedException();
     if (this->getExecuteGrade() < exec.getGrade())
         throw AForm::GradeTooLowException();
-    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox.\n";
-    std::cout << "*inaudible robot noises*\n";
-    if((rand() %10) % 2 ==0)
-        std::cout << this->_target << " has become a robot.\n";
+    std::srand(0);
+    std::cout << " 🤖 BRRRRRRRRRRR 🤖 " << std::endl;
+    if ((rand() % 10) % 2 == 0)
+        std::cout << this->getTarget() << " has been robotomizes successfully!" << std::endl;
     else
-        std::cout << "The robotomy of " << this->_target << " has failed.\n";
-
+        std::cout << "Robotomy failed. " << std::endl;
 }
+
+

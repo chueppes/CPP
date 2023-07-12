@@ -5,7 +5,7 @@
 
 int main(){
     try{
-        Bureaucrat Lord("Snow", 50);
+        Bureaucrat Lord("Snow", 42);
         Bureaucrat Mormont("Jorah", 1);
         ShrubberyCreationForm f1("home");
         RobotomyRequestForm f2("Varys");

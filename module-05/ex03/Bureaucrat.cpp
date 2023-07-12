@@ -1,18 +1,19 @@
 #include "Bureaucrat.hpp"
+#include <exception>
 
 Bureaucrat::Bureaucrat():_name("Shea"){
     this->_grade=150;
 }
 
 Bureaucrat::~Bureaucrat(){
-    std::cout << "Destructor called\n";
+    std::cout << "Bureaucreat destructor called\n";
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
     if(grade < 1)
         throw Bureaucrat::GradeTooHighException();
-    if(grade > 150)
+    else if(grade > 150)
         throw Bureaucrat::GradeTooLowException();
     this->_grade=grade;
 }
@@ -22,7 +23,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy):_name(copy._name){
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy){
-    this->_grade=copy._grade;
+    this->_grade=copy.getGrade();
     return(*this);
 }
 
@@ -68,12 +69,14 @@ void Bureaucrat::signForm(AForm &form){
     }
 }
 
-void Bureaucrat::executeForm(AForm const &form)const{
-    try{
-        form.execute(*this);
-    }
-    catch(const std::exception &exe)
+void Bureaucrat::executeForm(const AForm &form){
+    try
     {
-        std::cerr << "It was not possible to execute " <<form.getName() << " because " << exe.what() << '\n';
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "----->error at" << form.getName() << e.what() << std::endl;
     }
 }
